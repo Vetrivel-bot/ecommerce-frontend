@@ -53,9 +53,7 @@ const NavBar = () => {
 
       setLoading(true);
       try {
-        const response = await fetch(
-          `${BACKEND_URL}/api/search?q=${searchQuery}`
-        );
+        const response = await fetch(`${BACKEND_URL}/search?q=${searchQuery}`);
         if (!response.ok) throw new Error("Search request failed");
 
         const data = await response.json();

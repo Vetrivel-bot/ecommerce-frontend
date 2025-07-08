@@ -25,7 +25,7 @@ const AdminCard = ({ image, title, tags: initialTags, price, badge, id }) => {
 
   const handleSave = (e) => {
     e.stopPropagation();
-    fetch(`${BACKEND_URL}/api/products/update/${id}`, {
+    fetch(`${BACKEND_URL}products/update/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
@@ -43,7 +43,7 @@ const AdminCard = ({ image, title, tags: initialTags, price, badge, id }) => {
   const handleDelete = (e) => {
     e.stopPropagation();
     if (window.confirm("Are you sure you want to delete this product?")) {
-      fetch(`${BACKEND_URL}/api/products/delete/${id}`, {
+      fetch(`${BACKEND_URL}/products/delete/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       }).catch(console.error);

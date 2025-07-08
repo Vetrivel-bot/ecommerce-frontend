@@ -25,9 +25,7 @@ const AdminProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(
-          `${BACKEND_URL}/api/products/${id}`
-        );
+        const response = await fetch(`${BACKEND_URL}/products/${id}`);
         if (!response.ok) throw new Error("Failed to fetch product");
         const data = await response.json();
         setProduct(data);
@@ -84,13 +82,10 @@ const AdminProduct = () => {
       }
 
       // Send the request with FormData
-      const response = await fetch(
-        `${BACKEND_URL}/api/products/update/${id}`,
-        {
-          method: "PUT",
-          body: data, // No Content-Type header; browser sets it automatically
-        }
-      );
+      const response = await fetch(`${BACKEND_URL}/products/update/${id}`, {
+        method: "PUT",
+        body: data, // No Content-Type header; browser sets it automatically
+      });
 
       if (!response.ok) throw new Error("Update failed");
 
@@ -109,12 +104,9 @@ const AdminProduct = () => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        const response = await fetch(
-          `${BACKEND_URL}/api/products/delete/${id}`,
-          {
-            method: "DELETE",
-          }
-        );
+        const response = await fetch(`${BACKEND_URL}/products/delete/${id}`, {
+          method: "DELETE",
+        });
 
         if (!response.ok) throw new Error("Delete failed");
         console.log("Product deleted successfully");
