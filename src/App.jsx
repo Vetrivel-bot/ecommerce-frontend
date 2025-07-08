@@ -9,7 +9,7 @@ import Computer from "./routes/Computer";
 import Drones from "./routes/Drones";
 import Audio from "./routes/Audio";
 import Mobiles from "./routes/Mobiles";
-import Wearable from "./routes/wearable";
+import Wearable from "./routes/Wearable";
 import Sale from "./routes/Sale";
 import Profile from "./routes/profile";
 import Login from "./routes/login";
