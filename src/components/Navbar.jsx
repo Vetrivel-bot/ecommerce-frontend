@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useFetchhook from "../hooks/useFetchhook";
 import SearchResults from "./SearchResults";
 
-const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 const NavBar = () => {
   const [cartItemsCount, setCartItemsCount] = useState(0);
@@ -54,7 +54,7 @@ const NavBar = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:4000/api/search?q=${searchQuery}`
+          `${BACKEND_URL}/api/search?q=${searchQuery}`
         );
         if (!response.ok) throw new Error("Search request failed");
 
@@ -77,7 +77,7 @@ const NavBar = () => {
 
     const fetchCart = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/cart/${profile.user._id}`, {
+        const res = await fetch(`${BACKEND_URL}/cart/${profile.user._id}`, {
           credentials: "include",
         });
         const data = await res.json();

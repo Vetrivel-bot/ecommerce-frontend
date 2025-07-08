@@ -6,22 +6,24 @@ const URL = import.meta.env.BACKEND_URL;
 import useFetchhook from "../hooks/useFetchhook";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const images = [
   {
-    url: "http://localhost:4000/uploads/Nitro_V15_Hero_Banner_info.jpg",
+    url: `${BACKEND_URL}/uploads/Nitro_V15_Hero_Banner_info.jpg`,
     route: "/product/67f38af9a058d2c9bba4f56e",
   },
 
   {
-    url: "http://localhost:4000/uploads/hero3.jpg",
+    url: `${BACKEND_URL}/uploads/hero3.jpg`,
     route: "/product/67f38af9a058d2c9bba4f56d",
   },
   {
-    url: "http://localhost:4000/uploads/hero2.jpg",
+    url: `${BACKEND_URL}/uploads/hero2.jpg`,
     route: "/product/67f38af9a058d2c9bba4f565",
   },
   {
-    url: "http://localhost:4000/uploads/68d5d84be6620470edc9f67e5b69d9df.jpg",
+    url: `${BACKEND_URL}/uploads/68d5d84be6620470edc9f67e5b69d9df.jpg`,
     route: "/product/67f38af9a058d2c9bba4f586",
   },
 ];

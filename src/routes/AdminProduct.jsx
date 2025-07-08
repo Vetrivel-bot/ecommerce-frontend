@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ScrollToTop from "../components/ScroolToTop";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 const AdminProduct = () => {
   const { id } = useParams();
   // Initial product data
@@ -24,7 +26,7 @@ const AdminProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/products/${id}`
+          `${BACKEND_URL}/api/products/${id}`
         );
         if (!response.ok) throw new Error("Failed to fetch product");
         const data = await response.json();
@@ -83,7 +85,7 @@ const AdminProduct = () => {
 
       // Send the request with FormData
       const response = await fetch(
-        `http://localhost:4000/api/products/update/${id}`,
+        `${BACKEND_URL}/api/products/update/${id}`,
         {
           method: "PUT",
           body: data, // No Content-Type header; browser sets it automatically
@@ -108,7 +110,7 @@ const AdminProduct = () => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
         const response = await fetch(
-          `http://localhost:4000/api/products/delete/${id}`,
+          `${BACKEND_URL}/api/products/delete/${id}`,
           {
             method: "DELETE",
           }
